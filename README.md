@@ -16,6 +16,16 @@ npm install --save nextjs-google-analytics
 
 ## Usage
 
+### Note:
+
+This is a fork which allows users to use the original package by Mauricio Robayo, but with a custom GTM server-side container.
+
+To do this you have to define the following environment variable:
+
+```
+NEXT_PUBLIC_GTM_DOMAIN="www.yourdomain.com"
+```
+
 Your _Google Analytics measurement id_ is read from `NEXT_PUBLIC_GA_MEASUREMENT_ID` environment variable, so make sure it is set in your production environment:
 
 - [Vercel](https://vercel.com/docs/environment-variables)

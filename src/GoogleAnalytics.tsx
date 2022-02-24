@@ -7,6 +7,7 @@ export function GoogleAnalytics({
   strategy?: ScriptProps["strategy"];
 }): JSX.Element | null {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const gtmDomain = process.env.NEXT_PUBLIC_GTM_DOMAIN;
 
   if (!gaMeasurementId) {
     return null;
@@ -15,7 +16,7 @@ export function GoogleAnalytics({
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+        src={`{https://${gtmDomain}/gtag}/js?id=${gaMeasurementId}`}
         strategy={strategy}
       />
       <Script id="nextjs-google-analytics">
