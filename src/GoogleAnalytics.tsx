@@ -26,7 +26,8 @@ export function GoogleAnalytics({
             gtag('js', new Date());
           
             gtag('config', '${gaMeasurementId}', {
-               transport_url: https://${gtmDomain}',
+               page_path: window.location.pathname,
+               transport_url: 'https://${gtmDomain}',
                first_party_collection: true
             });
           `}
