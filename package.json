@@ -1,7 +1,7 @@
 {
   "name": "nextjs-google-analytics-gtm",
   "version": "1.0.9",
-  "description": "Google Analytics for Next.js",
+  "description": "Google Analytics for Next.js with support for GTM server container",
   "main": "dist/index.js",
   "sideEffects": false,
   "scripts": {
