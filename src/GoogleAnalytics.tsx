@@ -16,7 +16,7 @@ export function GoogleAnalytics({
   return (
     <>
       <Script
-        src={`{https://${gtmDomain}/gtag}/js?id=${gaMeasurementId}`}
+        src={`https://${gtmDomain}/gtag/js?id=${gaMeasurementId}`}
         strategy={strategy}
       />
       <Script id="nextjs-google-analytics">
