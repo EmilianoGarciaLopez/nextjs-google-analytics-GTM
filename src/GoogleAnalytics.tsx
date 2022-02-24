@@ -24,8 +24,10 @@ export function GoogleAnalytics({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+          
             gtag('config', '${gaMeasurementId}', {
-              page_path: window.location.pathname,
+               transport_url: https://${gtmDomain}',
+               first_party_collection: true
             });
           `}
       </Script>
