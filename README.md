@@ -11,7 +11,7 @@ This package optimizes script loading using [Next.js `Script` tag](https://nextj
 ## Installation
 
 ```
-npm install --save nextjs-google-analytics
+npm install --save nextjs-google-analytics-gtm
 ```
 
 ## Usage
