@@ -46,19 +46,38 @@ to your `.env.local` file.
 Use the `GoogleAnalytics` component to load the gtag scripts. You can add it to a [custom App](https://nextjs.org/docs/advanced-features/custom-app) component and this will take care of including the necessary scripts for every page (or you could add it on a per page basis if you need more control):
 
 ```js
-// pages/_app.js
-import { GoogleAnalytics } from "nextjs-google-analytics";
+// pages/document.tsx
+import Document, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
+import { GoogleAnalytics } from "nextjs-google-analytics-gtm";
 
-const App = ({ Component, pageProps }) => {
-  return (
-    <>
-      <GoogleAnalytics />
-      <Component {...pageProps} />
-    </>
-  );
-};
+class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
 
-export default App;
+    return initialProps;
+  }
+  render() {
+    return (
+      <Html>
+        <Head>
+          <GoogleAnalytics />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument;
 ```
 
 By default, scripts are loaded using the `afterInteractive` strategy, which means they are injected on the client-side and will run after hydration.
@@ -94,7 +113,6 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
-      <GoogleAnalytics />
       <Component {...pageProps} />
     </>
   );
@@ -153,7 +171,7 @@ To send [Next.js web vitals](https://nextjs.org/docs/advanced-features/measuring
 
 ```js
 // pages/_app.js
-import { GoogleAnalytics, event } from "nextjs-google-analytics";
+import { event } from "nextjs-google-analytics";
 
 export function reportWebVitals({ id, name, label, value }) {
   event(name, {
@@ -167,7 +185,6 @@ export function reportWebVitals({ id, name, label, value }) {
 const App = ({ Component, pageProps }) => {
   return (
     <>
-      <GoogleAnalytics />
       <Component {...pageProps} />
     </>
   );
