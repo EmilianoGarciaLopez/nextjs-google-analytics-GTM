@@ -20,10 +20,10 @@ npm install --save nextjs-google-analytics-gtm
 
 This is a fork which allows users to use the original package by Mauricio Robayo, but with a custom GTM server-side container.
 
-To do this you have to define the following environment variable:
+To do this you **MUST** define the following environment variable:
 
 ```
-NEXT_PUBLIC_GTM_DOMAIN="www.yourdomain.com"
+NEXT_PUBLIC_GTM_DOMAIN="www.yourdomain.com" 
 ```
 
 Your _Google Analytics measurement id_ is read from `NEXT_PUBLIC_GA_MEASUREMENT_ID` environment variable, so make sure it is set in your production environment:
@@ -43,7 +43,7 @@ to your `.env.local` file.
 
 ## Scripts
 
-Use the `GoogleAnalytics` component to load the gtag scripts. You can add it to a [custom App](https://nextjs.org/docs/advanced-features/custom-app) component and this will take care of including the necessary scripts for every page (or you could add it on a per page basis if you need more control):
+Use the `GoogleAnalytics` component to load the gtag scripts. You can add it to a [custom Document](https://nextjs.org/docs/advanced-features/custom-document) component and this will take care of including the necessary scripts for every page (or you could add it on a per page basis if you need more control):
 
 ```js
 // pages/document.tsx
@@ -78,26 +78,6 @@ class MyDocument extends Document {
 }
 
 export default MyDocument;
-```
-
-By default, scripts are loaded using the `afterInteractive` strategy, which means they are injected on the client-side and will run after hydration.
-
-If you need more control, the component exposes the [strategy](https://nextjs.org/docs/basic-features/script) prop to control how the scripts are loaded:
-
-```js
-// pages/_app.js
-import { GoogleAnalytics } from "nextjs-google-analytics";
-
-const App = ({ Component, pageProps }) => {
-  return (
-    <>
-      <GoogleAnalytics strategy="lazyOnload" />
-      <Component {...pageProps} />
-    </>
-  );
-};
-
-export default App;
 ```
 
 ## Page views
