@@ -37,7 +37,7 @@ to your `.env.local` file.
 
 ## Scripts
 
-Use the `GoogleAnalytics` component to load the gtag scripts. You can add it to a [custom Document](https://nextjs.org/docs/advanced-features/custom-document) component and this will take care of including the necessary scripts for every page (or you could add it on a per page basis if you need more control):
+Use the `GoogleAnalytics` component to load the gtag scripts. You can add it to a [custom Document](https://nextjs.org/docs/advanced-features/custom-document) component and this will take care of including the necessary scripts for every page (or you could add it on a per-page basis if you need more control):
 
 ```tsx
 // pages/document.tsx
