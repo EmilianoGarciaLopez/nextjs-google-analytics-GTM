@@ -1,4 +1,4 @@
-# Nextjs Google Analytics
+# Nextjs Google Analytics GTM
 
 [![npm version](https://badge.fury.io/js/nextjs-google-analytics-gtm.svg)](https://badge.fury.io/js/nextjs-google-analytics-gtm)
 [![CodeFactor](https://www.codefactor.io/repository/github/emilianogarcialopez/nextjs-google-analytics-gtm/badge)](https://www.codefactor.io/repository/github/emilianogarcialopez/nextjs-google-analytics-gtm)
